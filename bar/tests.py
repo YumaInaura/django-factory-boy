@@ -10,6 +10,6 @@ class TestBook(TestCase):
 
     BookFactory.create(title=title)
 
-    self.assertEqual(Book.objects[0].title,title)
+    self.assertEqual(Book.objects.latest('id').title,title)
     self.assertEqual(Book.objects.count(),1)
   
